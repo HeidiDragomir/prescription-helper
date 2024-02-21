@@ -1,0 +1,16 @@
+.reset-btn {
+    box-shadow: .30em .30em var(--shadow-block-shadow-color);
+   background-color: #f9b35d;
+   color: rgba(0,0,0,var(--tw-text-opacity));
+   font-weight: 700;
+   border-color: rgba(0,0,0,var(--tw-border-opacity));
+   padding: .15rem .5rem;
+ 
+}
+
+.reset-btn:hover {
+    border-color: rgba(0,0,0,var(--tw-border-opacity));
+    box-shadow: .45em .45em var(--shadow-block-shadow-color);
+    color: rgba(61,72,82,var(--tw-text-opacity));
+    transform: translate(-2px,-2px);
+  }
