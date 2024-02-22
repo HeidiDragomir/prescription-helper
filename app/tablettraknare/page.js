@@ -5,7 +5,9 @@ import { format, addDays, getYear, setDefaultOptions } from "date-fns";
 import { useEffect, useRef, useState } from "react";
 import Title from "../../components/Layout/Title";
 import Input from "../../components/Input";
+import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline";
 import { sv } from "date-fns/locale";
+import Link from "next/link";
 setDefaultOptions({ locale: sv });
 
 export default function Tablettraknare() {
@@ -42,18 +44,14 @@ export default function Tablettraknare() {
 	}, [tabletsPerDay, packages, tabletsPerPackage, withdrawal, totalDays]);
 
 	return (
-		<div className="w-[1000px] m-auto p-12">
+		<div className="w-full desktop:w-[1000px] laptop:w-[1000px] m-auto desktop:p-12 laptop:p-12">
 			<Title>Tabletträknare</Title>
-			<div className="w-[600px] m-auto border-2 p-12 bg-gray-light">
-				<div className="flex justify-end">
-					<button
-						className="reset-btn text-right border-2 rounded-full "
-						onClick={onReset}
-					>
-						Reset
-					</button>
+			<div className="desktop:w-[600px] laptop:w-[600px] tablet:w-[600px] m-auto border-2 p-12 bg-gray-light">
+				<div className="desktop:hidden laptop:hidden">
+					<Link href={"/"}>
+						<ArrowUturnLeftIcon className="w-6 mb-10 cursor-pointer" />
+					</Link>
 				</div>
-
 				<div className="flex my-4 py-4">
 					<Input
 						label="Tabletter per dygn"
@@ -64,7 +62,7 @@ export default function Tablettraknare() {
 						onChange={(event) => setTabletsPerDay(event.target.value)}
 					/>
 				</div>
-				<div className="flex my-4 py-4">
+				<div className="desktop:flex tablet:flex laptop:flex my-4 py-4">
 					<Input
 						label="Förpackningar"
 						htmlType="text"
@@ -82,7 +80,7 @@ export default function Tablettraknare() {
 						onChange={(event) => setTabletsPerPackage(event.target.value)}
 					/>
 				</div>
-				<div className="flex my-4 py-4">
+				<div className="desktop:flex tablet:flex laptop:flex my-4 py-4">
 					<Input
 						label="Uttag"
 						htmlType="text"
@@ -145,6 +143,14 @@ export default function Tablettraknare() {
 						)}
 						.
 					</p>
+				</div>
+				<div className="flex justify-center mt-12">
+					<button
+						className="reset-btn text-right border-2 rounded-full "
+						onClick={onReset}
+					>
+						Reset
+					</button>
 				</div>
 			</div>
 		</div>

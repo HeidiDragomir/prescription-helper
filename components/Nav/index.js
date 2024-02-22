@@ -9,7 +9,7 @@ const Nav = () => {
 	return (
 		<nav
 			className={`${
-				pathname === "/" ? "hidden" : "nav-container flex justify-center mb-12"
+				pathname === "/" ? "hidden" : "hidden desktop:flex laptop:flex justify-center mb-12"
 			}`}
 		>
 			<Link className="nav-item border-2" href="/">
