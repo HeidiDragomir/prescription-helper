@@ -1,7 +1,7 @@
 
 .card {
    box-shadow: .65em .65em var(--shadow-block-shadow-color);
-   background-color: var(--bg-grid-color);
+   /* background-color: var(--bg-grid-color); */
    color: rgba(0,0,0,var(--tw-text-opacity));
    text-transform: uppercase;
    font-weight: 700;

@@ -1,7 +1,8 @@
 
 .nav-item {
    box-shadow: .30em .30em var(--shadow-block-shadow-color);
-   background-color: var(--bg-grid-color);
+   /* background-color: var(--bg-grid-color); */
+   background-color: #e6d7fc;
    color: rgba(0,0,0,var(--tw-text-opacity));
    font-weight: 700;
    border-color: rgba(0,0,0,var(--tw-border-opacity));

@@ -6,8 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import Title from "../../components/Layout/Title";
 import Input from "../../components/Input";
 import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline";
-import { sv } from "date-fns/locale";
 import Link from "next/link";
+import { sv } from "date-fns/locale";
+import Button from "../../components/Button";
 setDefaultOptions({ locale: sv });
 
 export default function Tablettraknare() {
@@ -55,6 +56,7 @@ export default function Tablettraknare() {
 				<div className="flex my-4 py-4">
 					<Input
 						label="Tabletter per dygn"
+						placeholder="Tabletter per dygn"
 						htmlType="text"
 						name="tabletsPerDay"
 						value={tabletsPerDay}
@@ -65,6 +67,7 @@ export default function Tablettraknare() {
 				<div className="desktop:flex tablet:flex laptop:flex my-4 py-4">
 					<Input
 						label="Förpackningar"
+						placeholder="Förpackningar"
 						htmlType="text"
 						name="packages"
 						required
@@ -73,6 +76,7 @@ export default function Tablettraknare() {
 					/>
 					<Input
 						label="Stycke i varje förpackningar"
+						placeholder="Stycke i varje förpackningar"
 						htmlType="text"
 						name="tabletsPerPackage"
 						required
@@ -83,6 +87,7 @@ export default function Tablettraknare() {
 				<div className="desktop:flex tablet:flex laptop:flex my-4 py-4">
 					<Input
 						label="Uttag"
+						placeholder="Uttag"
 						htmlType="text"
 						name="withdrawal"
 						required
@@ -94,7 +99,7 @@ export default function Tablettraknare() {
 						label="Datum"
 						htmlType="date"
 						name="date"
-						max="9999-12-31"
+						// max="9999-12-31"
 						// pattern={"[0-9]{2}/[0-9]{2}/[0-9]{4}"}
 						value={date}
 						required
@@ -145,12 +150,7 @@ export default function Tablettraknare() {
 					</p>
 				</div>
 				<div className="flex justify-center mt-12">
-					<button
-						className="reset-btn text-right border-2 rounded-full "
-						onClick={onReset}
-					>
-						Reset
-					</button>
+					<Button onClick={onReset}>Reset</Button>
 				</div>
 			</div>
 		</div>

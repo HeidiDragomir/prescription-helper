@@ -1,12 +1,4 @@
-
-
-
-  .label-input {
-    border-radius: 0 7px 7px 7px;
-  }
-
-  .input-label {
-    line-height: 1;
-  padding: 7px 15px 5px 11px;
-  border-radius: 8px 8px 0 0;
-  }
+.input-item:placeholder-shown + .input-label {
+  opacity: 0;
+  transform: translateY(100%);
+}

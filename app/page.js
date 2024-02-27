@@ -26,6 +26,7 @@ const data = [
 	},
 ];
 
+
 export default function Home() {
 	return (
 		<div className="desktop:h-screen laptop:h-screen tablet:h-fit w-fit m-auto grid desktop:grid-cols-3 laptop:grid-cols-3 tablet:grid-cols-2 content-center gap-12">
