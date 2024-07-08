@@ -21,19 +21,26 @@ module.exports = {
 			gray: {
 				light: "#E9EAF2",
 				dark: "#c3c2c5",
+				darker: "#3d4852bf",
 			},
-			// label: "#382f26",
 			label: "#0a0049",
 			orange: {
 				DEFAULT: "#f7ba90",
 				100: "#f18943",
 				200: "#ef721e",
 			},
-			yellow: "#ffc600",
+			yellow: {
+				DEFAULT: "#ffc600",
+				light: "#ffe244",
+				dark: "#cc9b00",
+			},
 			lilac: {
 				DEFAULT: "#e6d7fc",
 				200: "#9282ff",
 			},
+			green: "#39d24a",
+			blue: "#1e90ff",
+			pink: "#ff36a3",
 		},
 	},
 	plugins: [],

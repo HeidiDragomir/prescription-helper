@@ -48,11 +48,6 @@ export default function Tablettraknare() {
 		<div className="w-full desktop:w-[1000px] laptop:w-[1000px] m-auto desktop:p-12 laptop:p-12">
 			<Title>Tabletträknare</Title>
 			<div className="desktop:w-[600px] laptop:w-[600px] tablet:w-[600px] m-auto border-2 p-12 bg-gray-light">
-				<div className="desktop:hidden laptop:hidden">
-					<Link href={"/"}>
-						<ArrowUturnLeftIcon className="w-6 mb-10 cursor-pointer" />
-					</Link>
-				</div>
 				<div className="flex my-4 py-4">
 					<Input
 						label="Tabletter per dygn"
@@ -60,6 +55,7 @@ export default function Tablettraknare() {
 						htmlType="text"
 						name="tabletsPerDay"
 						value={tabletsPerDay}
+						pattern="[0-9]"
 						required
 						onChange={(event) => setTabletsPerDay(event.target.value)}
 					/>
@@ -71,6 +67,7 @@ export default function Tablettraknare() {
 						htmlType="text"
 						name="packages"
 						required
+						pattern="[0-9]"
 						value={packages}
 						onChange={(event) => setPackages(event.target.value)}
 					/>
@@ -80,6 +77,7 @@ export default function Tablettraknare() {
 						htmlType="text"
 						name="tabletsPerPackage"
 						required
+						pattern="[0-9]"
 						value={tabletsPerPackage}
 						onChange={(event) => setTabletsPerPackage(event.target.value)}
 					/>
@@ -91,6 +89,7 @@ export default function Tablettraknare() {
 						htmlType="text"
 						name="withdrawal"
 						required
+						pattern="[0-9]"
 						value={withdrawal}
 						onChange={(event) => setWithdrawal(event.target.value)}
 					/>
@@ -112,22 +111,28 @@ export default function Tablettraknare() {
 					<p className="pb-2">
 						Patienten tar{" "}
 						{tabletsPerDay ? (
-							<span className="font-bold">{tabletsPerDay}</span>
+							<span className="underline  underline-offset-4 font-bold">
+								{tabletsPerDay}
+							</span>
 						) : (
 							<span className="font-bold">0</span>
 						)}{" "}
 						tabletter varje dag.
 					</p>
-					<p className="pb-6">
+					<p className="pb-2">
 						Fick{" "}
 						{packages ? (
-							<span className="font-bold">{packages}</span>
+							<span className="underline  underline-offset-4 font-bold">
+								{packages}
+							</span>
 						) : (
 							<span className="font-bold">0</span>
 						)}{" "}
 						förpackningar med{" "}
 						{tabletsPerPackage ? (
-							<span className="font-bold">{tabletsPerPackage}</span>
+							<span className="underline  underline-offset-4 font-bold">
+								{tabletsPerPackage}
+							</span>
 						) : (
 							<span className="font-bold">0</span>
 						)}{" "}
@@ -136,13 +141,17 @@ export default function Tablettraknare() {
 					<p className="w-full">
 						Det borde räcka för{" "}
 						{totalDays ? (
-							<span className="font-bold">{Math.trunc(totalDays)}</span>
+							<span className="underline  underline-offset-4 font-bold">
+								{Math.trunc(totalDays)}
+							</span>
 						) : (
 							<span className="font-bold">0</span>
 						)}{" "}
 						dagar, till{" "}
 						{formattedDate ? (
-							<span className="font-bold">{formattedDate}</span>
+							<span className="underline  underline-offset-4 font-bold text-[#0a0049] text-xl">
+								{formattedDate}
+							</span>
 						) : (
 							<span className="font-bold">--/--/----</span>
 						)}

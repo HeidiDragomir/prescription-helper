@@ -1,20 +1,17 @@
 
 .nav-item {
    box-shadow: .30em .30em var(--shadow-block-shadow-color);
-   /* background-color: var(--bg-grid-color); */
    background-color: #e6d7fc;
    color: rgba(0,0,0,var(--tw-text-opacity));
    font-weight: 700;
    border-color: rgba(0,0,0,var(--tw-border-opacity));
    margin-right: 2.5rem;
    padding: .25rem .5rem;
-   /* transition: background-color .2s,border-color .2s,box-shadow .2s,color .2s,transform .2s; */
  }
 
  .nav-item:hover {
   background-color: rgba(255,255,255,var(--tw-bg-opacity));
   border-color: rgba(0,0,0,var(--tw-border-opacity));
-  /* border-width: .2px; */
   box-shadow: .45em .45em var(--shadow-block-shadow-color);
   color: rgba(61,72,82,var(--tw-text-opacity));
   transform: translate(-2px,-2px);
