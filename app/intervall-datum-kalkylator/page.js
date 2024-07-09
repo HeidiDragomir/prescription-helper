@@ -8,8 +8,6 @@ import {
 	differenceInDays,
 } from "date-fns";
 import Input from "../../components/Input";
-import Link from "next/link";
-import { ArrowUturnLeftIcon } from "@heroicons/react/24/outline";
 import { sv } from "date-fns/locale";
 import Button from "../../components/Button";
 setDefaultOptions({ locale: sv });
@@ -28,7 +26,6 @@ const IntervallDatumKalkylator = () => {
 			start: new Date(startDate),
 			end: new Date(endDate),
 		});
-
 		const _days = differenceInDays(new Date(endDate), new Date(startDate));
 
 		setInterval(_interval);
@@ -42,6 +39,7 @@ const IntervallDatumKalkylator = () => {
 		setDays(null);
 	};
 
+
 	return (
 		<div className="w-full desktop:w-[1000px] laptop:w-[1000px] m-auto desktop:p-12 laptop:p-12">
 			<Title>Intervall Kalkylator</Title>
@@ -53,6 +51,7 @@ const IntervallDatumKalkylator = () => {
 						name="startDate"
 						required
 						onChange={(event) => setStartDate(event.target.value)}
+						value={startDate || ""}
 					/>
 				</div>
 				<div className="flex my-4 py-4">
@@ -62,6 +61,7 @@ const IntervallDatumKalkylator = () => {
 						name="endDate"
 						required
 						onChange={(event) => setEndDate(event.target.value)}
+						value={endDate || ""}
 					/>
 				</div>
 
@@ -86,7 +86,7 @@ const IntervallDatumKalkylator = () => {
 							</p>
 							<p>
 								<span className="font-bold text-2xl">
-									{interval - days > 0 ? Math.floor(interval.days / 7) : 0}
+									{interval.days > 0 ? Math.floor(interval.days / 7) : 0}
 								</span>{" "}
 								veckor,
 							</p>
