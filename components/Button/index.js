@@ -7,7 +7,7 @@ const Button = ({ children, htmlType, className, onClick, disabled }) => {
 			className={
 				className +
 				" " +
-				"btn-basic min-w-[160px] flex items-center justify-center uppercase text-lg font-semibold bg-orange-100 px-2 py-2 text-center border-2"
+				"btn-basic min-w-[160px] flex items-center justify-center uppercase text-lg px-2 py-2 text-center border-2"
 			}
 			type={htmlType}
 			onClick={onClick}

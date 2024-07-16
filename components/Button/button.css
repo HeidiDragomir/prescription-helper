@@ -1,6 +1,5 @@
 .btn-basic {
     box-shadow: .30em .30em var(--shadow-block-shadow-color);
-   /* background-color: #f9b35d; */
    color: rgba(0,0,0,var(--tw-text-opacity));
    font-weight: 700;
    border-color: rgba(0,0,0,var(--tw-border-opacity));

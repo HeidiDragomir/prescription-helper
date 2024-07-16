@@ -45,7 +45,7 @@ export default function Tablettraknare() {
 	}, [tabletsPerDay, packages, tabletsPerPackage, withdrawal, totalDays]);
 
 	return (
-		<div className="w-full desktop:w-[1000px] laptop:w-[1000px] m-auto desktop:p-12 laptop:p-12">
+		<div className="w-full h-screen desktop:w-[1000px] laptop:w-[1000px] m-auto desktop:p-12 laptop:p-12">
 			<Title>Tabletträknare</Title>
 			<div className="desktop:w-[600px] laptop:w-[600px] tablet:w-[600px] m-auto border-2 p-12 bg-gray-light">
 				<div className="flex my-4 py-4">
