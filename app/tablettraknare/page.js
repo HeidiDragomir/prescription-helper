@@ -45,7 +45,7 @@ export default function Tablettraknare() {
 	}, [tabletsPerDay, packages, tabletsPerPackage, withdrawal, totalDays]);
 
 	return (
-		<div className="w-full h-screen desktop:w-[1000px] laptop:w-[1000px] m-auto desktop:p-12 laptop:p-12">
+		<div className="w-full desktop:w-[1000px] laptop:w-[1000px] m-auto desktop:p-12 laptop:p-12">
 			<Title>Tabletträknare</Title>
 			<div className="desktop:w-[600px] laptop:w-[600px] tablet:w-[600px] m-auto border-2 p-12 bg-gray-light">
 				<div className="flex my-4 py-4">
@@ -60,7 +60,7 @@ export default function Tablettraknare() {
 						onChange={(event) => setTabletsPerDay(event.target.value)}
 					/>
 				</div>
-				<div className="desktop:flex tablet:flex laptop:flex my-4 py-4">
+				<div className="tablet:flex tablet:gap-2 my-4 py-4">
 					<Input
 						label="Förpackningar"
 						placeholder="Förpackningar"
@@ -72,8 +72,8 @@ export default function Tablettraknare() {
 						onChange={(event) => setPackages(event.target.value)}
 					/>
 					<Input
-						label="Stycke i varje förpackningar"
-						placeholder="Stycke i varje förpackningar"
+						label="Stycke i varje förpackning"
+						placeholder="Stycke i varje förpackning"
 						htmlType="text"
 						name="tabletsPerPackage"
 						required
@@ -82,7 +82,7 @@ export default function Tablettraknare() {
 						onChange={(event) => setTabletsPerPackage(event.target.value)}
 					/>
 				</div>
-				<div className="desktop:flex tablet:flex laptop:flex my-4 py-4">
+				<div className="tablet:flex tablet:gap-2 my-4 py-4">
 					<Input
 						label="Uttag"
 						placeholder="Uttag"
@@ -94,7 +94,6 @@ export default function Tablettraknare() {
 						onChange={(event) => setWithdrawal(event.target.value)}
 					/>
 					<Input
-						id="date"
 						label="Datum"
 						htmlType="date"
 						name="date"
@@ -159,7 +158,9 @@ export default function Tablettraknare() {
 					</p>
 				</div>
 				<div className="flex justify-center mt-12">
-					<Button onClick={onReset}>Reset</Button>
+					<Button className="bg-orange-100" onClick={onReset}>
+						Reset
+					</Button>
 				</div>
 			</div>
 		</div>
