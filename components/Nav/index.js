@@ -26,7 +26,7 @@ const Nav = () => {
 				Målvikt Kalkylator
 			</Link>
 
-			<Link className="nav-item border-2" href="/tillväxtkurva-bmi">
+			<Link className="nav-item border-2" href="/tillvaxtkurva-bmi">
 				Tillväxtkurva, BMI
 			</Link>
 

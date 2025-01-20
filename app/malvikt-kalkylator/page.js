@@ -1,10 +1,31 @@
+"use client"
+
+import { useEffect, useState } from "react";
 import Button from "../../components/Button";
 import Dropdown from "../../components/Dropdown";
 import FormRadio from "../../components/FormRadio";
 import Input from "../../components/Input";
 import Title from "../../components/Layout/Title";
+import { getDataGirls } from "../../lib/get-data-girls.js";
 
 const MalviktKalkylator = () => {
+	const [weight, setWeight] = useState("");
+	const [height, setHeight] = useState("");
+	const [age, setAge] = useState("");
+	const [gender, setGender] = useState("");
+
+	const data = getDataGirls();	
+	console.log(data);
+	const calcBMI = () => {
+		return (weight / (height * height)) * 10000;
+	};
+
+
+	const handleReset = () => {
+		setWeight("");
+		setHeight("");
+	};
+
 	return (
 		<div className="w-full h-full desktop:w-[1000px] laptop:w-[1000px] m-auto desktop:p-12 laptop:p-12">
 			<Title>Målvikt kalkylator (IsoBMI)</Title>
@@ -13,8 +34,8 @@ const MalviktKalkylator = () => {
 					<div>
 						<h2 className="text-2xl pb-2">Kön</h2>
 						<div className="flex gap-4">
-							<FormRadio label="Flicka" name="gender" value="girl" />
-							<FormRadio label="Pojke" name="gender" value="boy" />
+							<FormRadio label="Flicka" name="gender" value="girl" onChange={() => setGender("girl")} />
+							<FormRadio label="Pojke" name="gender" value="boy" onChange={() => setGender("boy")}/>
 						</div>
 					</div>
 					<div>
@@ -61,25 +82,23 @@ const MalviktKalkylator = () => {
 							/>
 						</div>
 					</div>
-					<div>
-						<h2 className="text-2xl pb-2">Längd</h2>
-						<Input type="number" name="height" placeholder="cm" label="cm" />
+					<div className="w-full">
+						<Input type="number" name="height" placeholder="Längd (cm)" label="Längd (cm)" value={height} onChange={(e) => setHeight(e.target.value)}/>
 					</div>
-					<div>
-						<h2 className="text-2xl pb-2">Vikt</h2>
-						<Input type="number" name="weight" placeholder="kg" label="kg" />
+					<div className="w-full">
+						<Input type="number" name="weight" placeholder="Vikt (kg)" label="Vikt (kg)" value={weight} onChange={(e) => setWeight(e.target.value)}/>
 					</div>
 					<div className="my-4 w-full">
 						<p className="text-xl">
-							Det ungefärliga kroppsmasseindexet är ..., som kan tolkas som
-							betydlig övervikt.
+							Det ungefärliga kroppsmasseindexet är {weight && height ? calcBMI().toFixed(1) : 0}, som kan tolkas som
+							...
 						</p>
 					</div>
-					<div className="flex justify-center my-4">
+					{/* <div className="flex justify-center my-4">
 						<Button className="bg-green-200 text-white">Beräkna</Button>
-					</div>
+					</div> */}
 					<div className="flex justify-center">
-						<Button className="bg-orange-100">Reset</Button>
+						<Button className="bg-orange-100" onClick={handleReset}>Reset</Button>
 					</div>
 				</div>
 			</div>

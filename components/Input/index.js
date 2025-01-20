@@ -13,7 +13,7 @@ const Input = ({
 	value,
 }) => {
 	return (
-		<div className="relative w-full pr-4">
+		<div className="relative w-full">
 			<input
 				id={id}
 				ref={PropRef}
