@@ -1,0 +1,121 @@
+[
+    {
+        "age": 2,
+        "undervikt": "<14.8",
+        "normalvikt": "14.8-18.0",
+        "övervikt": "18.0-19.7",
+        "obesitas": ">19.7"
+    },
+    {
+        "age": 3,
+        "undervikt": "<14.2",
+        "normalvikt": "14.2-17.4",
+        "övervikt": "17.4-19.1",
+        "obesitas": ">19.1"
+    },
+    {
+        "age": 4,
+        "undervikt": "<13.9",
+        "normalvikt": "13.9-17.2",
+        "övervikt": "17.2-18.9",
+        "obesitas": ">18.9"
+    },
+    {
+        "age": 5,
+        "undervikt": "<13.7",
+        "normalvikt": "13.7-17.0",
+        "övervikt": "17.0-18.7",
+        "obesitas": ">18.7"
+    },
+    {
+        "age": 6,
+        "undervikt": "<13.5",
+        "normalvikt": "13.5-16.8",
+        "övervikt": "16.8-18.8",
+        "obesitas": ">18.8"
+    },
+    {
+        "age": 7,
+        "undervikt": "<13.4",
+        "normalvikt": "13.4-16.9",
+        "övervikt": "16.9-19.0",
+        "obesitas": ">19.0"
+    },
+    {
+        "age": 8,
+        "undervikt": "<13.3",
+        "normalvikt": "13.3-17.3",
+        "övervikt": "17.3-19.5",
+        "obesitas": ">19.5"
+    },
+    {
+        "age": 9,
+        "undervikt": "<13.4",
+        "normalvikt": "13.4-17.8",
+        "övervikt": "17.8-20.0",
+        "obesitas": ">20.0"
+    },
+    {
+        "age": 10,
+        "undervikt": "<13.7",
+        "normalvikt": "13.7-18.5",
+        "övervikt": "18.5-20.7",
+        "obesitas": ">20.7"
+    },
+    {
+        "age": 11,
+        "undervikt": "<14.1",
+        "normalvikt": "14.1-19.2",
+        "övervikt": "19.2-21.5",
+        "obesitas": ">21.5"
+    },
+    {
+        "age": 12,
+        "undervikt": "<14.6",
+        "normalvikt": "14.6-19.9",
+        "övervikt": "19.9-22.3",
+        "obesitas": ">22.3"
+    },
+    {
+        "age": 13,
+        "undervikt": "<15.1",
+        "normalvikt": "15.1-20.7",
+        "övervikt": "20.7-23.1",
+        "obesitas": ">23.1"
+    },
+    {
+        "age": 14,
+        "undervikt": "<15.6",
+        "normalvikt": "15.6-21.4",
+        "övervikt": "21.4-23.9",
+        "obesitas": ">23.9"
+    },
+    {
+        "age": 15,
+        "undervikt": "<16.0",
+        "normalvikt": "16.0-22.1",
+        "övervikt": "22.1-24.7",
+        "obesitas": ">24.7"
+    },
+    {
+        "age": 16,
+        "undervikt": "<16.4",
+        "normalvikt": "16.4-22.8",
+        "övervikt": "22.8-25.5",
+        "obesitas": ">25.5"
+    },
+    {
+        "age": 17,
+        "undervikt": "<16.7",
+        "normalvikt": "16.7-23.4",
+        "övervikt": "23.4-26.2",
+        "obesitas": ">26.2"
+    },
+    {
+        "age": 18,
+        "undervikt": "<17.0",
+        "normalvikt": "17.0-23.7",
+        "övervikt": "23.7-26.7",
+        "obesitas": ">26.7"
+    }
+]

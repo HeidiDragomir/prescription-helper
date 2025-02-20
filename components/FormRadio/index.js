@@ -2,14 +2,11 @@ const FormRadio = ({
 	id,
 	onChange,
 	value,
-	defaultValue,
 	name,
 	label,
 	required,
 	checked,
 	refProp,
-	errorMessage,
-	defaultChecked,
 	className,
 }) => {
 	return (
@@ -27,7 +24,6 @@ const FormRadio = ({
 					onChange={onChange}
 					type="radio"
 					value={value}
-					defaultValue={defaultValue}
 					name={name}
 					className={
 						className +
@@ -36,7 +32,6 @@ const FormRadio = ({
 					}
 					required={required}
 					checked={checked}
-					defaultChecked={defaultChecked}
 				/>
 				{label}
 			</label>

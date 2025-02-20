@@ -7,23 +7,77 @@ import FormRadio from "../../components/FormRadio";
 import Input from "../../components/Input";
 import Title from "../../components/Layout/Title";
 import { getDataGirls } from "../../lib/get-data-girls.js";
+import { getDataBoys } from "../../lib/get-data-boys";
+
 
 const MalviktKalkylator = () => {
 	const [weight, setWeight] = useState("");
 	const [height, setHeight] = useState("");
 	const [age, setAge] = useState("");
 	const [gender, setGender] = useState("");
+	const [data, setData] = useState([]);
+	const [category, setCategory] = useState("");
 
-	const data = getDataGirls();	
-	console.log(data);
+	// Fetch data based on gender
+	useEffect(() => {
+		const fetchData = async () => {
+			const result = gender === "girl" ? await getDataGirls() : await getDataBoys();
+			setData(result);
+		};
+		fetchData();
+	}, [gender]);
+	
+
+
+	// BMI Calculation
 	const calcBMI = () => {
+		if (!weight || !height) return 0;
 		return (weight / (height * height)) * 10000;
 	};
 
+	// Find BMI category
+	const findCategory = (bmi) => {
+		if (!age || !data.length) return "";
+
+		const ageData = data.find((item) => item.age === parseInt(age));
+
+		if (!ageData) return "Ålder saknas";
+
+		if (bmi < parseFloat(ageData.undervikt.replace("<", ""))) return "Undervikt";
+		
+		const [normalMin, normalMax] = ageData.normalvikt.split("-").map(parseFloat);
+
+		if (bmi >= normalMin && bmi <= normalMax) return "Normalvikt";
+
+		const [overweightMin, overweightMax] = ageData.övervikt.split("-").map(parseFloat);
+
+		if (bmi >= overweightMin && bmi <= overweightMax) return "Övervikt";
+		if (bmi > parseFloat(ageData.obesitas.replace(">", ""))) return "Obesitas";
+
+		return "Okänd kategori";
+	};
+
+	// Update category when BMI changes
+	useEffect(() => {
+
+		if (!weight || !height || !age) {
+			return;
+		}
+	
+		const bmi = calcBMI();
+	
+		const _category = findCategory(bmi);
+	
+		setCategory(_category);
+	}, [weight, height, age, data]);
+	
 
 	const handleReset = () => {
 		setWeight("");
 		setHeight("");
+		setAge("");
+		setCategory("");
+		setGender("");
 	};
 
 	return (
@@ -31,72 +85,46 @@ const MalviktKalkylator = () => {
 			<Title>Målvikt kalkylator (IsoBMI)</Title>
 			<div className="desktop:w-[600px] laptop:w-[600px] tablet:w-[600px] m-auto border-2 p-12 bg-gray-light">
 				<div className="flex flex-col gap-8">
+					{/* Gender Selection */}
 					<div>
 						<h2 className="text-2xl pb-2">Kön</h2>
 						<div className="flex gap-4">
-							<FormRadio label="Flicka" name="gender" value="girl" onChange={() => setGender("girl")} />
-							<FormRadio label="Pojke" name="gender" value="boy" onChange={() => setGender("boy")}/>
+							<FormRadio label="Flicka" name="gender" value="girl" onChange={() => setGender("girl")} checked={gender === "girl"} />
+							<FormRadio label="Pojke" name="gender" value="boy" onChange={() => setGender("boy")} checked={gender === "boy"}/>
 						</div>
 					</div>
+
+					{/* Age Selection */}
 					<div>
 						<h2 className="text-2xl pb-2">Ålder</h2>
-						<div className="flex gap-4">
-							<Dropdown
-								label="Ålder"
-								items={[
-									"2 år",
-									"3 år",
-									"4 år",
-									"5 år",
-									"6 år",
-									"7 år",
-									"8 år",
-									"9 år",
-									"10 år",
-									"11 år",
-									"12 år",
-									"13 år",
-									"14 år",
-									"15 år",
-									"16 år",
-									"17 år",
-									"18 år",
-								]}
-							/>
-							<Dropdown
-								label="Ålder"
-								items={[
-									"0 månader",
-									"1 månad",
-									"2 månader",
-									"3 månader",
-									"4 månader",
-									"5 månader",
-									"6 månader",
-									"7 månader",
-									"8 månader",
-									"9 månader",
-									"10 månader",
-									"11 månader",
-								]}
-							/>
-						</div>
+						<Dropdown
+							label="Ålder"
+							items={[...Array(17).keys()].map((i) => `${i + 2} år`)}
+							onChange={(e) => setAge(e.target.value)}
+                            value={age}
+						/>
 					</div>
+
+					{/* Height Input */}
 					<div className="w-full">
-						<Input type="number" name="height" placeholder="Längd (cm)" label="Längd (cm)" value={height} onChange={(e) => setHeight(e.target.value)}/>
+						<Input type="number" name="height" placeholder="Längd (cm)" label="Längd (cm)" value={height} onChange={(e) => setHeight(e.target.value)} />
 					</div>
+
+					{/* Weight Input */}
 					<div className="w-full">
-						<Input type="number" name="weight" placeholder="Vikt (kg)" label="Vikt (kg)" value={weight} onChange={(e) => setWeight(e.target.value)}/>
+						<Input type="number" name="weight" placeholder="Vikt (kg)" label="Vikt (kg)" value={weight} onChange={(e) => setWeight(e.target.value)} />
 					</div>
-					<div className="my-4 w-full">
+
+					{/* BMI Result Display */}
+					{data.length > 0 ? (
 						<p className="text-xl">
-							Det ungefärliga kroppsmasseindexet är {weight && height ? calcBMI().toFixed(1) : 0}, som kan tolkas som
-							...
+							Det ungefärliga kroppsmasseindexet är {weight && height ? calcBMI().toFixed(1) : 0}, vilket klassificeras som: <b>{category}</b>
 						</p>
-					</div>
-					{/* <div className="flex justify-center my-4">
-						<Button className="bg-green-200 text-white">Beräkna</Button>
-					</div> */}
+						) : (
+						<p>Laddar data...</p>
+						)}
+
+					{/* Reset Button */}
 					<div className="flex justify-center">
 						<Button className="bg-orange-100" onClick={handleReset}>Reset</Button>
 					</div>

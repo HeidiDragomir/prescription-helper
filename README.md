@@ -6,7 +6,7 @@ The Prescription Helper is going to be a collection of tools designed to facilit
 This project includes the following tools:
 
 - Tablet counter --> completed
-- Goal weight calculator (IsoBMI) --> in progress
+- Goal weight calculator (IsoBMI) --> completed
 - Growth curve + BMI --> in progress
 - Interval date calculator --> completed
 - Other tools --> in progress
